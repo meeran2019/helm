@@ -1,4 +1,14 @@
 ---------------------------------------------------------------------------------------------------------
-
+INTRODUCTION: 
 ---------------------------------------------------------------------------------------------------------
+
+What is HELM?:
+
+        Helm is a package manager for kubernetes. 
+        In templates, it contains all objects require for the projects and manage as package. 
+        Without kubernetes, it requires to install and delete all objects like pods, deployment, services etc separately which cause operational overhead when project is complex. 
+
+        Also can keep all objects in single file but still it is complex to manage and debug.
+
+        
 
