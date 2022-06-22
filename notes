@@ -10,5 +10,99 @@ What is HELM?:
 
         Also can keep all objects in single file but still it is complex to manage and debug.
 
-        
+
+Installing and Configuration:     
+
+        https://helm.sh/docs/intro/install/
+
+
+Helm Components: 
+
+        Charts              -   collection of objects. Contains instruction for helm needed.
+        Release             -   Release chart to kubernetes. Each release can have multiple revision.
+        metadata            -   saves in kubernetes itself as secrets.
+        template            -   it is folder which contains all the kubernetes yaml files. 
+        values.yaml         -   it contains the variable which applied in template.
+
+    Release is used because multiple release can run using same chart. 
+
+    Helm repositories is provided by different provider like bitnami etc. Artifcathub.io contains all repositories. 
+
+
+Helm Charts: 
+
+        It contains instructions to run.
+
+        chart.yaml
+        values.yaml 
+        template 
+
+Chart.yaml: 
+
+        apiVersion      -   v1 for helm2 , v2 for helm3.
+        appVersion      -   version of application
+        version         -   version of chart itself. 
+        name            -   name of chart 
+        type            -   library & application.
+        dependencies    -   can include other charts. 
+        keywords        -   
+        mainteners      -   email & name.
+
+    hellowordldchart 
+        chart.yaml
+        templates
+        values.yaml 
+        charts          -   directory contain other charts. 
+
+
+Working with Helm - Basics: 
+
+        helm --help                 -   shares command details.
+        helm search hub name        -   to search in artifact hub.
+        helm search repo repo-name  -   to search in specific repository.
+
+        helm repo add bitnami https:path    -   add bitnami repo to local.
+        helm install release-name chart     -   to install chart. 
+
+        helm list                   -   list all releases.
+        helm uninstall release      -   to uninstall release.
+
+
+Customize Chart Parameters:        
+
+    At CLI: 
+
+        helm install --set key1=value1 release-name chart-name          -> This override in values.yaml 
+
+    Own Custom values.yml: 
+
+            custom-values.yml: 
+
+        helm install --values=custom-values.yml release-name chart-name 
+
+    Update directly in values.yaml: 
+
+        helm pull chart-name            -   pull in archived form.
+        helm pull --untar chart-name    -   pull in unarchived form.
+        helm install release-name ./chart-name      -   While run, refer the local directory path. 
+
+
+Life cycle management with Helm: 
+
+    helm upgrade release-name               -   to upgrade release to latest version. 
+    helm history release-name               -   gives history of releases
+    helm rollback release-name revision     -   It creates revision3 and revert the value of revision1.
+
+    NOTE: Persistent volume / data will not have any change during rollback or upgrade. 
+
+    
+
+
+
+
+
+
+
+
+
 

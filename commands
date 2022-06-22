@@ -1,0 +1,8 @@
+
+Introduction: 
+
+helm install release-name  chart-name       -   deploy the kubernetes package.
+helm upgrade release-name                   -   to update
+helm uninstall release-name                 -   to delete 
+helm rollback release-name                  -   to rollback objects.
+

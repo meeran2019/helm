@@ -1,0 +1,108 @@
+---------------------------------------------------------------------------------------------------------
+INTRODUCTION:
+---------------------------------------------------------------------------------------------------------
+
+        Install the helm package on the controlplane node:
+
+                https://helm.sh/docs/intro/install/
+
+                helm version        -   To check installed helm version.
+
+
+        Which environment variable can be used to indicate whether or not Helm is running in Debug mode :
+
+                helm help 
+
+                | $HELM_DEBUG                        | indicate whether or not Helm is running in Debug mode
+
+
+        What is a command line flag that can be used to enable verbose output? : 
+
+                helm help 
+
+                --debug                       enable verbose output
+
+
+        Which of the following is not a valid subcommand to use with helm get command?
+
+                get         download extended information of a named release
+
+                Usage:
+                    helm get [command]
+
+                    Available Commands:
+                    all         download all information for a named release
+                    hooks       download all hooks for a named release
+                    manifest    download the manifest for a named release
+                    notes       download the notes for a named release
+                    values      download the values file for a named release
+
+---------------------------------------------------------------------------------------------------------
+USING HELM TO DEPLOY CHART:
+---------------------------------------------------------------------------------------------------------
+
+    1. The helm package that contains all of the resource definitions necessary to run an application, tool, or service inside of a Kubernetes cluster is known as a …
+
+        chart 
+
+    2. We cannot install the same chart multiple times on the same Kubernetes Cluster.
+
+        false. Using release-name can install multiple chart on same name. 
+
+    3. Which command is used to search for a wordpress helm chart package from the Artifact Hub?
+
+        helm search hub wordpress 
+
+    4. Add bitnami helm chart repository in the controlplane node.
+
+        helm repo add bitnami https://charts.bitnami.com/bitnami
+
+    5. Which command is used to search for the wordpress package from the newly added bitnami repository?
+        
+        helm search repo bitnami/wordpress
+
+    6. How many helm chart repositories are there in the controlplane node now?
+
+        helm repo list
+
+    7. Deploy the Apache application on the cluster using the apache from the bitnami repository.Set the release Name to: amaze-surf
+
+         helm install amaze-surf bitnami/apache
+         helm list      -   To list the helm chart.
+
+    8. What version of apache did we just install on the cluster using the helm chart?
+
+        helm list 
+
+    9. Uninstall the nginx chart release happy-browse from the cluster.
+
+        helm uninstall happy-browse
+
+    10. Remove the Hashicorp helm repository from the cluster.
+
+         helm repo list
+         helm repo remove hashicorp
+
+    11. Add bitnami helm chart repository to the cluster.
+
+        helm repo add bitnami https://charts.bitnami.com/bitnami
+
+    12. How many revisions of nginx exists in the cluster?
+
+        helm history dazzling-web
+    
+    13. The DevOps team has decided to upgrade the nginx to version 1.22 in the bitnami repository.
+        Make sure that the nginx version running in the cluster is 1.22.x.
+
+            helm upgrade dazzling-web bitnami/nginx
+
+---------------------------------------------------------------------------------------------------------
+INTRODUCTION:
+---------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
