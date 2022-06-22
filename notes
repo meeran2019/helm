@@ -100,7 +100,7 @@ Life cycle management with Helm:
 HELM CHARTS ANATOMY:
 ---------------------------------------------------------------------------------------------------------
 
-Writing a Helm Chart: 
+WRITING A HELM CHART: 
 
         {{ }}                   -       Template directive 
         {{ .Release.Name }}     -       . represemt root level scope. 
@@ -125,7 +125,7 @@ Writing a Helm Chart:
         Values.key2 
 
 
-Verifying Helm Chart: 
+VERIFYING HELM CHART: 
 
         LINT: 
                 Verify chart and yaml format is working correct. 
@@ -141,8 +141,10 @@ Verifying Helm Chart:
                 Some errors can only be catch by kubernetes. 
                 helm install release-name chart-name --dry-run
 
-                
 
+FUNCTIONS: 
+
+        
 
 
 
