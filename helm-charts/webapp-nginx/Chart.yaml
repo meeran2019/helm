@@ -1,0 +1,4 @@
+apiVersion: v2
+name: webapp-nginx 
+version: 0.1.1
+appVersion: 1.16.0

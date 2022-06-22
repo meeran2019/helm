@@ -95,12 +95,27 @@ USING HELM TO DEPLOY CHART:
             helm rollback release-name revisions        -   to rollback to specific version. 
 
 ---------------------------------------------------------------------------------------------------------
-INTRODUCTION:
+WRITING A HELM CHART: 
 ---------------------------------------------------------------------------------------------------------
 
+    1. Inspect the apiVersion set on this chart and identify what Helm version this chart was built for.
 
+                apiVersion: v2
 
+    2.  What would be the name of the container created by this helm chart called hello-world?
 
+                In template/deployment.yml file, in Chart.name -> Name: hello-world
+
+    3.  What would be the name of the image used by the container created by this helm chart called hello-world?                
+
+                Easier way to get this is use template. 
+
+                helm template ./chart-name 
+
+    4. Create a helm chart at /root/webapp-nginx for this application by converting the deployment and service definition files into templates.Create a chart first and then move the definition files into the templates directory.The deployment and service objects should be named in the format RELEASE-NAME-nginx.Set apiVersion for the chart to v2.Name the chart webapp-nginx.Set version number to 0.1.1.Set appVersion to 1.16.0.Values file has a variable image set by default so make changes for an image nginx:1.16.0.
+    Value of image variable to be used in deployment as the image name for the container.                
+
+            
 
 
 
