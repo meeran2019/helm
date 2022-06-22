@@ -96,8 +96,52 @@ Life cycle management with Helm:
     NOTE: Persistent volume / data will not have any change during rollback or upgrade. 
 
     
+---------------------------------------------------------------------------------------------------------
+HELM CHARTS ANATOMY:
+---------------------------------------------------------------------------------------------------------
+
+Writing a Helm Chart: 
+
+        {{ }}                   -       Template directive 
+        {{ .Release.Name }}     -       . represemt root level scope. 
+        Release.Name            -       Release name. 
+
+2nd part name is always capital because these are builtin objects. 
+
+        Release.Name 
+        Release.Namespace 
+        Release.Revison 
+
+        Chart.Name
+        Chart.ApiVersion
+        Chart.Version
+        Chart.Type 
+
+        Capabilities.APiVersions
+        Capabilities.KubeVersion
+        Capabilities.GitCommit 
+
+        Values.key1
+        Values.key2 
 
 
+Verifying Helm Chart: 
+
+        LINT: 
+                Verify chart and yaml format is working correct. 
+                helm lint ./chart 
+
+        TEMPLATE:
+                It renders the template locally and displays output. 
+                helm template ./chart 
+                helm template release-name ./chart 
+                helm template ./chart --debug   
+
+        DRY RUN: 
+                Some errors can only be catch by kubernetes. 
+                helm install release-name chart-name --dry-run
+
+                
 
 
 

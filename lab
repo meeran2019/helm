@@ -5,28 +5,24 @@ INTRODUCTION:
         Install the helm package on the controlplane node:
 
                 https://helm.sh/docs/intro/install/
-
                 helm version        -   To check installed helm version.
 
 
         Which environment variable can be used to indicate whether or not Helm is running in Debug mode :
 
                 helm help 
-
                 | $HELM_DEBUG                        | indicate whether or not Helm is running in Debug mode
 
 
         What is a command line flag that can be used to enable verbose output? : 
 
                 helm help 
-
                 --debug                       enable verbose output
 
 
         Which of the following is not a valid subcommand to use with helm get command?
 
                 get         download extended information of a named release
-
                 Usage:
                     helm get [command]
 
@@ -37,6 +33,7 @@ INTRODUCTION:
                     notes       download the notes for a named release
                     values      download the values file for a named release
 
+                    
 ---------------------------------------------------------------------------------------------------------
 USING HELM TO DEPLOY CHART:
 ---------------------------------------------------------------------------------------------------------
@@ -95,6 +92,7 @@ USING HELM TO DEPLOY CHART:
         Make sure that the nginx version running in the cluster is 1.22.x.
 
             helm upgrade dazzling-web bitnami/nginx
+            helm rollback release-name revisions        -   to rollback to specific version. 
 
 ---------------------------------------------------------------------------------------------------------
 INTRODUCTION:

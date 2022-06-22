@@ -1,0 +1,8 @@
+apiVersion: v2
+appVersion: 1.0.1
+version: 1.0.1
+dependancy: 
+mainteners: 
+keyword: 
+type: application or library 
+description: description of chart
