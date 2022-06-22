@@ -144,11 +144,69 @@ VERIFYING HELM CHART:
 
 FUNCTIONS: 
 
-        
+        {{ upper .values.image }}               -       convert to upper case 
+        {{ quote .values.image }}               -       add quote "" 
+        replace 
+        shuffle 
+        {{ default "nginx" .Values.image }}     -       function default to add default value. 
 
 
+PIPELINES: 
+
+        {{ values.image | upper }}               -      convert to upper case 
+        {{ values.image | default "nginx"}}      -      take default value if not maintained.
 
 
+CONDITIONALS:
+
+        If condition is used to check the condition. If value is maintained then only execute the block. 
+
+                {{ if .Values.image }}
+                {{ end }}
+
+        - is used to trim the line in output. 
+
+                {{- if .Values.image }}
+                {{- end }}
+
+        else if - used to check other conditions. 
+
+                {{ else if eq .Values.image "hr" }}
+
+        else - if "if" condition not satisfied.
+
+                {{ else }}
 
 
+WITH BLOCKS: 
+
+        Scope of the variable. 
+
+                root -> image -> tag -> test1
+
+                image: 
+                tag: 
+                test1: 
+
+        With this scope, no need to specify full path. .Values.image.tag.test1
+                {{- with .Values.image.tag}}
+                        {{ .test1 }}
+                {{ end }}
+
+        $.Values.scope1.scope2          -> $ is used to override the scope.
+
+
+RANGES: 
+
+        It is like for loops.
+
+        regions: 
+        - asia
+        - europe
+        - africa 
+        - america 
+
+        {{- range .values.regions }}            -       scope of range. 
+        - {{. | quotes }}                       -       add quotes to range of list values.
+        {{- end }}
 

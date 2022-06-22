@@ -115,7 +115,22 @@ WRITING A HELM CHART:
     4. Create a helm chart at /root/webapp-nginx for this application by converting the deployment and service definition files into templates.Create a chart first and then move the definition files into the templates directory.The deployment and service objects should be named in the format RELEASE-NAME-nginx.Set apiVersion for the chart to v2.Name the chart webapp-nginx.Set version number to 0.1.1.Set appVersion to 1.16.0.Values file has a variable image set by default so make changes for an image nginx:1.16.0.
     Value of image variable to be used in deployment as the image name for the container.                
 
-            
+                To refer helm-charts folder. 
+                
 
+---------------------------------------------------------------------------------------------------------
+FUNCTIONS AND PIPELINES: 
+---------------------------------------------------------------------------------------------------------
+                                
+    coalese     -   returns the first non empty value. 
+    Randxxx     -   TO generate random password. 
+    echo -n "password" | base64     -n - do not append new line. 
+
+    image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default 2.4 }}"
+
+
+---------------------------------------------------------------------------------------------------------
+CONDITIONS, BLOCKS AND RANGES: 
+---------------------------------------------------------------------------------------------------------
 
 
