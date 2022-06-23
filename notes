@@ -210,3 +210,78 @@ RANGES:
         - {{. | quotes }}                       -       add quotes to range of list values.
         {{- end }}
 
+
+NAMED TEMPLATES: 
+
+        Named template is used for templatize. It consists of define the template and refer the template. 
+
+        Define the template: 
+
+                templates/_helpers.tpl                  -       _ file is skipped for manifest process.
+                {{- define "labels"}}
+                name: test-name 
+                app: {{ .Release.Name }}
+                {{- end }}
+
+        Refer the template: 
+
+                {{- template "labels" }}                -       Used to just expand the defined value.
+
+                {{- template "labels" . }}              -       Used to expand the scope (Release.Name)
+
+        NOTE:   It just copy from template and replace and cause intendation issue. 
+                Cannot use indent with template. Use include instead of template to work with intend.
+
+                {{- include "labels" . | intend }}                 
+                {{- include "labels" . | intend 2 }}                 
+                {{- include "labels" . | intend 4 }}                 
+
+CHART HOOKS: 
+
+        verify -> render -> pre-install -> install -> post-install
+        verify -> render -> pre-delete -> delete -> post-delete 
+        verify -> render -> pre-rollback -> rollback -> post-rollback
+        verify -> render -> pre-upgrade -> upgrade -> post-upgrade 
+
+        1. create a job in yaml and place under templates.
+
+        2. add annotation in job, so consider as pre process. 
+                annotations: 
+                        "helm.sh/hook": pre-upgrade / pre-delete / pre-rollback / pre-install 
+
+        3. If multiple pre/pro process, then set the weight to run the job sequentially. 
+                - to + in ascending order. - runs first followed by + , so runs in -2 -1 0 1 2 3 
+                same weight can be assigned to multiple hooks. 
+
+                annotation: 
+                        "helm.sh/hook-weight": "5"
+
+        4. After hook job is completed, whether to delete the resource or not. 
+                annotations:
+                        "helm.sh/hook-delete-policy": hook-succeeded / hook-failed / before-hook-creation
+
+
+PACKAGING AND SIGNING CHARTS: 
+
+        helm package ./chart                    -       package in tar format. 
+
+        helm package --key --key "kay-name" --keyring /.gnupg/secring.gpg ./chart
+
+        helm verify ./chart.tgz 
+
+        helm install --verify ./chart           -       used to verify the chart.
+
+        1. Create a key usign gpg.
+        2. use the --sign for package. 
+                will create .prov file. 
+        
+
+UPLOADING CHARTS:
+
+        helm repo index         -       to generate index.yaml file. 
+
+        It requires, 
+                1. packaged component 
+                2. index.yaml
+                3. provisoner file.
+
