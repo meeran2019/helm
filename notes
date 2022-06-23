@@ -232,9 +232,9 @@ NAMED TEMPLATES:
         NOTE:   It just copy from template and replace and cause intendation issue. 
                 Cannot use indent with template. Use include instead of template to work with intend.
 
-                {{- include "labels" . | intend }}                 
-                {{- include "labels" . | intend 2 }}                 
-                {{- include "labels" . | intend 4 }}                 
+                {{- include "labels" . | indent }}                 
+                {{- include "labels" . | indent 2 }}                 
+                {{- include "labels" . | indent 4 }}                 
 
 CHART HOOKS: 
 
@@ -312,4 +312,5 @@ ADDITIONAL:
                 targetPort: 8080                
                 nodePort: 30080                
               selector:
+
 
