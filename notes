@@ -285,3 +285,31 @@ UPLOADING CHARTS:
                 2. index.yaml
                 3. provisoner file.
 
+---------------------------------------------------------------------------------------------------------
+ADDITIONAL:
+---------------------------------------------------------------------------------------------------------
+
+
+        {{ if }}             -          if - is not given, then display empty line. 
+
+              spec:
+                ports:
+                - port: 8080
+                protocol: TCP
+                targetPort: 8080
+                
+                nodePort: 30080
+                
+              selector:
+
+
+        {{- if }}            -          if - is given, not display empty line. 
+
+              spec:
+                ports:
+                - port: 8080
+                protocol: TCP
+                targetPort: 8080                
+                nodePort: 30080                
+              selector:
+
