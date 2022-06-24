@@ -314,3 +314,14 @@ ADDITIONAL:
               selector:
 
 
+
+
+---------------------------------------------------------------------------------------------------------
+HELM WITH EKS: 
+---------------------------------------------------------------------------------------------------------
+
+        helm uses kube config file for authentication with EKS. 
+        
+        kubectl config current-context          -       to get the context details.
+
+

@@ -6,3 +6,7 @@ helm upgrade release-name                   -   to update
 helm uninstall release-name                 -   to delete 
 helm rollback release-name                  -   to rollback objects.
 
+helm verify                                 -   verify the package 
+helm install --verify                       -   to verify before install.
+helm package /chart -d destination/path     -   package the chart and place in destination path. 
+
