@@ -236,6 +236,9 @@ NAMED TEMPLATES:
 
         NOTE:   It just copy from template and replace and cause intendation issue. 
                 Cannot use indent with template. Use include instead of template to work with intend.
+                
+                TEMPLATE is part of the core Go text/template language. It always renders its results to the template output; it does not produce a value and its result cannot be captured in a variable or included in a pipeline.
+                INCLUDE is a Helm extension. It captures the template output and returns it as a string. 
 
                 {{- include "labels" . | indent }}                 
                 {{- include "labels" . | indent 2 }}                 
