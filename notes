@@ -10,6 +10,11 @@ What is HELM?:
 
         Also can keep all objects in single file but still it is complex to manage and debug.
 
+What is HELM2 Vs Helm3?:
+        In Helm3, Tiller is removed. In Helm2, due to no RBAC, it is intermediate between user and kubernetes API and render the yaml file.
+        In Helm3, do 3 way strategic merge means which consider current manifest, new manifest and any manual edit (using kubectl edit). In Helm2, consider only current and new manifest.
+        In Helm3, Relase name is unique to Namespace level. In Helm2, release name is unique to cluster level. 
+        In Helm3, Secret is used to store release information. In Helm2, uses config map. 
 
 Installing and Configuration:     
 
